@@ -1,8 +1,11 @@
-FROM nginx:latest
+FROM node:14
 
-COPY server.js /usr/share/nginx/html
+WORKDIR /usr/myapp
 
+COPY server.js .
 
-EXPOSE 80 443 	
+EXPOSE 8080 	
 
-CMD ["nginx", "-g", "daemon off;"]
+ENV NAME CW2
+
+CMD ["node", "server.js"]
