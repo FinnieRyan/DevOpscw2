@@ -22,8 +22,8 @@ pipeline {
                   script {
                       
                          //start container 
-                         sh "docker run -d  --name test-container ryanfinnie/cw-app 
-                         sh "curl http://localhost:port"
+                         sh "docker run -d  --name test-container ryanfinnie/cw-app" 
+                         sh "curl http://localhost:8080"
                          
                          //stop and rm container                       
                          sh "docker stop test-container"
