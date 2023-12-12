@@ -21,9 +21,10 @@ pipeline {
               steps {
                   script {
                       
-                         //start container 
+                         //start container
+                         sh docker ps
                          sh "docker run -d  --name test-container ryanfinnie/cw2-app" 
-                         sh "curl http://localhost:8080"
+                         sh "docker ps"
                          
                          //stop and rm container                       
                          sh "docker stop test-container"
@@ -36,7 +37,8 @@ pipeline {
 	  stage('Push to Docker') {
               steps {
                   script {
-                      docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-login') {
+                       docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-login') {
+                          sh "docker tag ryanfinnie/cw2-app registry.hub.docker.com/ryanfinnie/cw2-app:latest"
                           dockerImage.push("ryanfinnie/cw2-app:latest")
                       }
                   }
