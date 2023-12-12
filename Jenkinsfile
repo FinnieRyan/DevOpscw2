@@ -42,8 +42,8 @@ pipeline {
 	  stage('deploy to Kubernetes') {
 	      steps {
                   script {
-                   //kubernetes deploy commands 
-		   //test
+                    kubectl create deployment cw2app --image=ryanfinnie/cw2-app --kubeconfig=/home/ubuntu/.kube/config 
+		   
                   }
               }
           }
