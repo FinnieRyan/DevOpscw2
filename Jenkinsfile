@@ -22,7 +22,7 @@ pipeline {
                   script {
                       
                          //start container 
-                         sh "docker run -d  --name test-container ryanfinnie/cw-app" 
+                         sh "docker run -d  --name test-container ryanfinnie/cw2-app" 
                          sh "curl http://localhost:8080"
                          
                          //stop and rm container                       
