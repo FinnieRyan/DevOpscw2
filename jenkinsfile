@@ -31,7 +31,7 @@ pipeline {
 	  stage('Push to Docker') {
               steps {
                   script {
-                      docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
+                      docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-login') {
                           dockerImage.push("latest")
                       }
                   }
