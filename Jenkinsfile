@@ -38,8 +38,8 @@ pipeline {
               steps {
                   script {
                        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-login') {
-                           dockerImage.tag("registry.hub.docker.com/ryanfinnie/cw2-app:latest")
-                           dockerImage.push("latest")
+                           sh "docker tag ryanfinnie/cw2-app registry.hub.docker.com/ryanfinnie/cw2-app:latest"
+                           sh "docker push registry.hub.docker.com/ryanfinnie/cw2-app:latest"
                       }
                   }
               }
