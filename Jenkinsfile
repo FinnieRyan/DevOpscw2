@@ -22,7 +22,7 @@ pipeline {
                   script {
                       
                          //start container
-                         sh docker ps
+                         sh "docker ps"
                          sh "docker run -d  --name test-container ryanfinnie/cw2-app" 
                          sh "docker ps"
                          
