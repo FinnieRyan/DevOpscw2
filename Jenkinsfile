@@ -20,9 +20,14 @@ pipeline {
           stage('Test container') {
               steps {
                   script {
-                      dockerImage.inside {
-                          //add tests 
-                      }
+                      
+                         //start container 
+                         sh "docker run -d  --name test-container ryanfinnie/cw-app 
+                         sh "curl http://localhost:port"
+                         
+                         //stop and rm container                       
+                         sh "docker stop test-container"
+                         sh "docker rm test-container"
                   }
               }
           }
