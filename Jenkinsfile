@@ -47,11 +47,9 @@ pipeline {
 
 
 	  stage('deploy to Kubernetes') {
-	      steps {
-                  script {
-                      sh("kubectl set image deployment/cw2app cw2app=ryanfinnie/cw2-app:latest --kubeconfig=/home/ubuntu/.kube/config") 
-		   
-                  }
+	       steps {
+        	  sshagent(['my-ssh-key']) {
+          	  sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-23-213-158.compute-1.amazonaws.com 'bash -s' < image-deployment.sh"
               }
           }
       }
