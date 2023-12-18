@@ -49,7 +49,7 @@ pipeline {
 	  stage('deploy to Kubernetes') {
 	      steps {
         	  sshagent(['my-ssh-key']) {
-          	      sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-23-213-158.compute-1.amazonaws.com 'bash -s' < image-deployment.sh"
+          	      sh "ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-207-180-172.compute-1.amazonaws.com 'bash -s' < image-deployment.sh"
                   }
               }
           }
