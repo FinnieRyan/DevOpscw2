@@ -4,4 +4,4 @@
 kubectl set image deployment/cw2app cw2app=ryanfinnie/cw2-app:latest --kubeconfig=/home/ubuntu/.kube/config
 
 # Check if successful
-kubectl rollout status deployment/cw2app --kubeconfig=/home/ubuntu/.kube/config
+kubectl rollout restart deployment cw2app
